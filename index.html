@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pochoclo</title>
+    <link rel="shortcut icon" href="./asset/pochoclo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header >
+        <nav>
+            <div class="header-container">
+                <!--home-->
+                <img class="navItem logo" id="logo" src="./asset/pochoclo.svg" alt="">
+                <span class="backArrow inactive"><</span>
+                <span class="navItem" id="categories-link">categories</span>
+                <span class="navItem" id="movies-link">movies</span>
+                <span class="navItem" id="series-link">series</span>
+                <img src="./asset/searchIcon.svg" alt="searchIcon" id="search-icon" class="navItem">
+                <!--categories-->
+                <h1 class="titleSection inactive" id="category-title">categories</h1>
+                <h1 class="titleSection inactive" id="movies-title">movies</h1>
+                <h1 class="titleSection inactive" id="series-title">series</h1>
+                <!--search-->
+                <form class="form-search inactive">
+                    <input class="search-input inactive" id="search-input" type="text" placeholder="silicon valley">
+                    <i id="search-iconActive" class="navItem fa-solid fa-magnifying-glass inactive"></i>
+                    <i id="search-iconClose" class="navItem fa-solid fa-x inactive"></i>
+                </form>
+                <!--generic header-->
+                <h1 id="generic-title" class="titleSection inactive"></h1>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <!--home-->
+        <section id="home-container" class="section-container">
+            <div class="trend-containerPreview">
+                <h2 class="titleSection subtSection">trendings</h2>
+                <button class="btn" id="btn-trendsPreview">more</button>
+            </div>
+            <div class="trend-scrollContainerPreview ">
+                <article class="movie-container">
+                    <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
+                </article>
+            </div>
+            <div class="collection-containerHeadPreview">
+                <h2 class="titleSection subtSection">collections</h2>
+                <button class="btn" id="btn-collectionPreview">more</button>
+            </div>
+            <!--<div class="collection-scrollContainerPreview">
+                <article class="movie-container">
+                    <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
+                </article>
+            </div>-->
+        </section>
+
+        <!--categories-->
+        <section id="categories-container" class="section-container">
+            <div class="categories-list">
+                <!--<h4 class="category-item">Action</h4>
+                <h4 class="category-item">Romance</h4>
+                <h4 class="category-item">Comedy</h4>
+                <h4 class="category-item">War</h4>
+                <h4 class="category-item">SuperHeroes</h4>
+                <h4 class="category-item">Real Life</h4>
+                <h4 class="category-item">Documentals</h4>
+                <h4 class="category-item">Drama</h4>
+                <h4 class="category-item">Adults</h4>
+                <h4 class="category-item">Action</h4>-->
+            </div>
+        </section>
+        
+        <!--lista generica de peliculas-->
+        
+        <section id="generic-list" class="generic-list inactive section-container">
+            <div class="generic-results">
+            </div>
+        </section>
+
+        <!-- vista pelicula/serie -->
+        <section id="movie-view" class="movie-view">
+            <div class="movieView-img"></div>
+            <div class="movieView-descriptionContainer">
+                <h3 class="movieView-subt">description</h3>
+                <span class="movie-score">7.3</span>
+            </div>
+            <p class="movie-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore omnis adipisci necessitatibus earum, eligendi numquam reprehenderit aliquam, doloremque quam eos ducimus voluptate qui excepturi autem aspernatur fugit, nesciunt eius odit.</p>
+            <div class="movieView-categoryContainer">
+                <span class="movieView-category-item">Action</span>
+            </div>
+            <div class="recommendations">
+                <h4 class="recommendations-title">similar</h4>
+                <div class="movie-recommendations-scroll">
+                    <article class="movie-container">
+                        <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
+                    </article>
+                    <article class="movie-container">
+                        <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
+                    </article>
+                    <article class="movie-container">
+                        <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script/key.js"></script>
+    <script src="./script/nodes.js"></script>
+    <script src="./script/main.js"></script>
+    <script src="./script/navigation.js"></script>
+</body>
+</html>

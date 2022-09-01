@@ -201,8 +201,67 @@ nav{
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 300;
-
 }
+
+#id28::before{
+    content: '💣';
+}
+#id12::before{
+    content:'🗻';
+}
+#id16::before{
+    content:'🐟';
+}
+#id35::before{
+    content:'😄';
+}
+#id80::before{
+    content:'🔫';
+}
+#id99::before{
+    content:'📹';
+}
+#id18::before{
+    content:'😔';
+}
+#id10751::before{
+    content:'👨‍👩‍👧';
+}
+#id14::before{
+    content:'🐉';
+}
+#id36::before{/*history*/
+    content:'💂🏻‍♀️';
+}
+#id27::before{/*horror*/
+    content:'👻';
+}
+#id10402::before{
+    content:'🎸';
+}
+#id9648::before{/*mystery*/
+    content:'🔪';
+}
+#id10749::before{/*romance*/
+    content:'💐';
+}
+#id878::before{/*science fiction*/
+    content:'🦸🏻‍♂️';
+}
+#id10770::before{/*tv movie*/
+    content:'📺';
+}
+#id53::before{/*thriller*/
+    content:'🕵🏾';
+}
+#id10752::before{/*war*/
+    content:'🚁';
+}
+#id37::before{/*western*/
+    content:'🤠';
+}
+
+
 
 /* generic container */
 .generic-results{

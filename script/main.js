@@ -41,6 +41,7 @@ function createCategories(categories, container){
         });
 
         categoryItem.appendChild(categoryTitle); //mete el texto adentro del h4
+        categoryItem.setAttribute('id', 'id' + category.id);
         container.appendChild(categoryItem); //mete el item de la categoria en el contenedor
     });
 }

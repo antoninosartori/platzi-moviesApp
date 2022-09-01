@@ -245,7 +245,7 @@ nav{
 }
 
 .movieView-img{
-    height: 700px;
+    height: calc(90vh - 80px);
     background-position: center !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important; 

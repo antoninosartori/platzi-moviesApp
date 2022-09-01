@@ -291,7 +291,7 @@ function seriesPage(){
 function moviePage(){
     // header
     headerContainer.classList.remove('inactive');
-    header.classList.remove('header-fixed');
+    header.classList.add('header-fixed');
     logo.classList.add('inactive');
     backArrow.classList.remove('inactive');
     linkCategories.classList.add('inactive');

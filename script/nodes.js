@@ -26,6 +26,7 @@ const movieViewContainer = document.querySelector('.movie-view');
 
 // contenedores especificos
 const trendScrollContainerPreview = document.querySelector('.trend-scrollContainerPreview');
+const trendSeriesScrollContainerPreview = document.querySelector('.trendSeries-scrollContainerPreview');
 const categoriesList = document.querySelector('.categories-list');
 const genericResults = document.querySelector('.generic-results');
 
@@ -34,6 +35,7 @@ const categoryItem = document.querySelector('.category-item');
 
 // botones de las secciones
 const btnTrendsPreview = document.querySelector('#btn-trendsPreview');
+const btnTrendsSeriesPreview = document.querySelector('#btn-trendsSeriesPreview');
 
 //pelicula serie collecion
 const movieContainer = document.querySelector('.movie-container');

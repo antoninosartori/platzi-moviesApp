@@ -26,7 +26,8 @@
     /*medidas*/
     --marginTopSection: 50px;
     --marginTopComponent: 20px;
-    --marginLeft: 20px
+    --marginLeft: 20px;
+    --headerSize:80px ;
 }
 
 body{
@@ -69,7 +70,7 @@ nav{
     font-family: var(--fontTitle);
     font-size: var(--sizeTitle);
     position: relative;
-    left: 20px;
+    left: 0px;
 }
 
 .navItem{
@@ -117,6 +118,7 @@ nav{
     font-weight: 300;
     margin: 0 auto;
     text-transform: uppercase;
+    overflow: hidden;
 }
 
 .subtSection{
@@ -130,17 +132,38 @@ nav{
 }
 
 /* tendencias preview */
-.trend-containerPreview, .collection-containerHeadPreview{
+.trend-containerPreview, .collection-containerHeadPreview, .trendSeries-containerPreview{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.trend-scrollContainerPreview, .collection-scrollContainerPreview{
+.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendSeries-scrollContainerPreview{
     display: flex;
     justify-content: space-between;
     margin-top: var(--marginTopComponent);
     overflow-x: scroll;
+}
+
+.trend-scrollContainerPreview::-webkit-scrollbar{
+    height: 5px;
+}
+.trend-scrollContainerPreview::-webkit-scrollbar-thumb{
+    background-color: var(--moradoClaro);
+    border-radius: 5px;
+}
+
+.movie-recommendations-scroll::-webkit-scrollbar{
+    height: 5px;
+}
+.movie-recommendations-scroll::-webkit-scrollbar-thumb{
+    background-color: var(--moradoClaro);
+    border-radius: 5px;
+}
+
+/* series tendencias preview*/
+.trendSeries-containerPreview{
+    margin-top: var(--marginTopSection);
 }
 
 .btn{
@@ -168,6 +191,7 @@ nav{
     justify-content: space-between;
     align-items: flex-start;
     gap: var(--marginTopComponent);
+    padding-top: var(--marginTopSection);
     margin-bottom: var(--marginTopSection);
 }
 .category-item{
@@ -192,6 +216,9 @@ nav{
     margin-top: 10px;
 }
 
+#generic-title{
+    text-align: center;
+}
 /* contenedor de articulo (pelicula-serie) */
 .movie-container{
     margin-right: 10px;
@@ -214,15 +241,14 @@ nav{
     font-family: var(--fontTitle);
     color: var(--blanco);
     font-size: var(--sizeSubt);
+    padding-top: var(--headerSize);
 }
 
 .movieView-img{
-    width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    background-attachment:fixed !important;
-    background-repeat: no-repeat;
+    height: 700px;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important; 
 }
 
 .movieView-descriptionContainer{

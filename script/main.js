@@ -101,4 +101,12 @@ async function getMovieById(id){
 
 
     createCategories(movie.genres, movieViewCategoriesContainer);
+    getSimilarMoviesById(id);
 }
+
+async function getSimilarMoviesById(id){
+    const {data: movie } = await api(`movie/${id}/similar`);
+    const similarMovies = movie.results;
+
+    createMovies(similarMovies, movieRecommendationsScroll);
+};

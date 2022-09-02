@@ -47,4 +47,5 @@ const movieViewCategoriesContainer = document.querySelector('.movieView-category
 const movieViewCategoryItem = document.querySelector('.movieView-category-item');
 const recommendations = document.querySelector('.recommendations');
 const movieRecommendationsScroll = document.querySelector('.movie-recommendations-scroll');
+const movieViewScrollImages = document.querySelector('.movieView-ScrollImages');
 

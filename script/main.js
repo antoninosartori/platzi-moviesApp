@@ -46,6 +46,17 @@ function createCategories(categories, container){
     });
 }
 
+function createMovieImages(moviePosters, container){
+    container.innerHTML = "";
+    moviePosters.forEach(movie => {
+        const movieImageUrL = 'https://image.tmdb.org/t/p/w500/' + movie.file_path;
+        const movieImage = document.createElement('img');
+        movieImage.setAttribute('src', movieImageUrL);
+        movieImage.classList.add('movieImages-Item');
+        container.appendChild(movieImage);
+        
+    })
+}
 //llamados a la api
 async function getTrendsPreview(){
     const {data} = await api('trending/movie/day');
@@ -73,7 +84,7 @@ async function getMoviesByCategory(id){
 }
 
 async function getMoviesBySearch(query){
-    const {data} = await api('search/multi', {
+    const {data} = await api('search/movie', {
         params:{
             query,
         },
@@ -92,7 +103,6 @@ async function getTrends(){
 
 async function getMovieById(id){
     const {data: movie } = await api('movie/' + id);
-
     const movieImgUrl = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
     movieViewImg.style.background = `url(${movieImgUrl})`;
     movieViewImg.classList.add('movieView-img');
@@ -103,6 +113,7 @@ async function getMovieById(id){
 
     createCategories(movie.genres, movieViewCategoriesContainer);
     getSimilarMoviesById(id);
+    getMovieImagesById(id);
 }
 
 async function getSimilarMoviesById(id){
@@ -111,3 +122,10 @@ async function getSimilarMoviesById(id){
 
     createMovies(similarMovies, movieRecommendationsScroll);
 };
+
+async function getMovieImagesById(id){
+    const {data: movie } = await api(`movie/${id}/images`);
+    const moviePosters = movie.backdrops;
+
+    createMovieImages(moviePosters, movieViewScrollImages);
+}

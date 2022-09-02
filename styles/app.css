@@ -138,7 +138,7 @@ nav{
     justify-content: space-between;
 }
 
-.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendSeries-scrollContainerPreview{
+.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendSeries-scrollContainerPreview, .movieView-ScrollImages{
     display: flex;
     justify-content: space-between;
     margin-top: var(--marginTopComponent);
@@ -161,6 +161,13 @@ nav{
     border-radius: 5px;
 }
 
+.movieView-ScrollImages::-webkit-scrollbar{
+    height: 5px;
+}
+.movieView-ScrollImages::-webkit-scrollbar-thumb{
+    background-color: var(--moradoClaro);
+    border-radius: 5px;
+}
 /* series tendencias preview*/
 .trendSeries-containerPreview{
     margin-top: var(--marginTopSection);
@@ -353,13 +360,24 @@ nav{
     margin-right: 15px;
     font-size: var(--sizeNavLink);
 }
-/*
-.movieView-category-item{
-    text-transform: uppercase;
-    font-weight: 300;
-    margin-right: 10px;
-    font-size: var(--sizeNavLink);
-}*/
+
+.movieView-ScrollImagesContainer{
+    width: 100%;
+    margin-top: var(--marginTopSection) ;
+}
+
+.movieView-ScrollImagesContainer h4{
+    margin-left: var(--marginLeft);
+}
+
+.movieView-ScrollImages img{
+    max-width: 80vw;
+    max-height: 70vh;
+    object-fit: contain;    
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+    margin-left: var(--marginLeft);
+}
 
 .recommendations{
     margin-top: var(--marginTopComponent);
@@ -392,3 +410,4 @@ nav{
 .inactive{
     display: none;
 }
+

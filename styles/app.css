@@ -286,12 +286,12 @@ nav{
     text-align: center;
 }
 /* contenedor de articulo (pelicula-serie) */
-.movie-container{
+.movie-container, .serie-container{
     margin-right: 10px;
     cursor: pointer;
 }
 
-.movieImg{
+.movieImg, .serieImg{
     min-height: 150px;
     min-width: 150px;
     max-height: 250px;

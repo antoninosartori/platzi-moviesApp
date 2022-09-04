@@ -37,7 +37,7 @@ const categoryItem = document.querySelector('.category-item');
 const btnTrendsPreview = document.querySelector('#btn-trendsPreview');
 const btnTrendsSeriesPreview = document.querySelector('#btn-trendsSeriesPreview');
 
-//pelicula serie collecion
+//pelicula 
 const movieContainer = document.querySelector('.movie-container');
 const movieImg = document.querySelector('.movieImg');
 const movieViewImg = document.querySelector('.movieView-img');
@@ -49,3 +49,6 @@ const recommendations = document.querySelector('.recommendations');
 const movieRecommendationsScroll = document.querySelector('.movie-recommendations-scroll');
 const movieViewScrollImages = document.querySelector('.movieView-ScrollImages');
 
+//serie
+const serieContainer = document.querySelector('.serie-container');
+const serieImg = document.querySelector('.serieImg');

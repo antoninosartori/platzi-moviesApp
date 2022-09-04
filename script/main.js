@@ -16,7 +16,9 @@ function createMovies (movies, container){
         const movieContainer = document.createElement('article'); //crear el contenedor de la pelicula
         movieContainer.classList.add('movie-container'); //le agrega la clase
         movieContainer.addEventListener('click', ()=>{//click para ingresar a la pelcula
-            location.hash = 'movie=' + movie.id;
+            const hashMediaType = movie.media_type;
+            location.hash = `${hashMediaType}=${movie.id}`;
+            //location.hash = 'movie=' + movie.id;
         });
         const movieImg = document.createElement('img'); //crear la img de la pelicula/serie
         movieImg.classList.add('movieImg'); //le agrega la clase
@@ -25,6 +27,26 @@ function createMovies (movies, container){
 
         movieContainer.appendChild(movieImg);
         container.appendChild(movieContainer);
+    });
+}
+
+function createSeries(series, container){
+    container.innerHTML = '';
+
+    series.forEach(serie => {
+        const serieContainer = document.createElement('article');
+        serieContainer.classList.add('serie-container');
+        serieContainer.addEventListener('click', () => {
+            const hashMediaType = serie.media_type;
+            location.hash = `${hashMediaType}=${serie.id}`;
+        });
+        const serieImg = document.createElement('img');
+        serieImg.classList.add('serieImg');
+        serieImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300/' + serie.poster_path);
+        serieImg.setAttribute('alt', serie.title);
+
+        serieContainer.appendChild(serieImg);
+        container.appendChild(serieContainer);
     });
 }
 
@@ -65,6 +87,13 @@ async function getTrendsPreview(){
     createMovies(movies, trendScrollContainerPreview);
 }
 
+async function getTopSeriesPreview(){
+    const { data } = await api('trending/tv/day');
+    const series = data.results;
+
+    createSeries(series, trendSeriesScrollContainerPreview);
+}
+
 async function getCategoriesPreview(){
     const {data} = await api('genre/movie/list');
     const categories = data.genres;
@@ -84,7 +113,7 @@ async function getMoviesByCategory(id){
 }
 
 async function getMoviesBySearch(query){
-    const {data} = await api('search/movie', {
+    const {data} = await api('search/multi', {
         params:{
             query,
         },
@@ -102,7 +131,10 @@ async function getTrends(){
 }
 
 async function getMovieById(id){
-    const {data: movie } = await api('movie/' + id);
+    const [subString,_] = location.hash.split('=');//obtengo lo que esta en el hash que seria #movie=123 separandolo con el signo igual
+    mediaType = subString.substring(1); //le saco el primer caracter que era el #
+    const {data: movie } = await api(`${mediaType}/${id}`);
+    //const {data: movie } = await api('movie/' + id);
     const movieImgUrl = 'https://image.tmdb.org/t/p/w500/' + movie.poster_path;
     movieViewImg.style.background = `url(${movieImgUrl})`;
     movieViewImg.classList.add('movieView-img');

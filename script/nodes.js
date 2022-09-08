@@ -6,10 +6,10 @@ const logo = document.querySelector('.logo');
 const backArrow = document.querySelector('.backArrow');
 const linkCategories = document.querySelector('#categories-link');
 const linkMovies = document.querySelector('#movies-link');
-const linkSeries = document.querySelector('#series-link');
+const linkTv = document.querySelector('#tv-link');
 const categoriesTitle = document.querySelector('#category-title');
 const moviesTitle = document.querySelector('#movies-title');
-const seriesTitle = document.querySelector('#series-title');
+const tvTitle = document.querySelector('#tv-title');
 const formSearch = document.querySelector('.form-search');
 const searchIcon = document.querySelector('#search-icon');
 const searchInput = document.querySelector('#search-input');
@@ -23,10 +23,11 @@ const homeContainer = document.querySelector('#home-container');
 const categoriesContainer = document.querySelector('#categories-container');
 const genericContainer = document.querySelector('.generic-list');
 const movieViewContainer = document.querySelector('.movie-view');
+const tvViewContainer = document.querySelector('.tv-view');
 
 // contenedores especificos
 const trendScrollContainerPreview = document.querySelector('.trend-scrollContainerPreview');
-const trendSeriesScrollContainerPreview = document.querySelector('.trendSeries-scrollContainerPreview');
+const trendTvScrollContainerPreview = document.querySelector('.trendTv-scrollContainerPreview');
 const categoriesList = document.querySelector('.categories-list');
 const genericResults = document.querySelector('.generic-results');
 
@@ -35,7 +36,7 @@ const categoryItem = document.querySelector('.category-item');
 
 // botones de las secciones
 const btnTrendsPreview = document.querySelector('#btn-trendsPreview');
-const btnTrendsSeriesPreview = document.querySelector('#btn-trendsSeriesPreview');
+const btnTrendsTvPreview = document.querySelector('#btn-trendsTvPreview');
 
 //pelicula 
 const movieContainer = document.querySelector('.movie-container');
@@ -50,5 +51,18 @@ const movieRecommendationsScroll = document.querySelector('.movie-recommendation
 const movieViewScrollImages = document.querySelector('.movieView-ScrollImages');
 
 //serie
-const serieContainer = document.querySelector('.serie-container');
-const serieImg = document.querySelector('.serieImg');
+const tvContainer = document.querySelector('.tv-container');
+const tvImg = document.querySelector('.tvImg');
+const tvViewImg = document.querySelector('.tvView-img');
+const tvViewScore = document.querySelector('.tv-score');
+const tvViewDescription = document.querySelector('.tv-description');
+const tvViewCategoriesContainer = document.querySelector('.tvView-categoryContainer');
+const tvViewCategoryItem = document.querySelector('.tvView-category-item');
+const tvRecommendationsScroll = document.querySelector('.tv-recommendations-scroll');
+const tvViewScrollImages = document.querySelector('.tvView-ScrollImages');
+
+//temporadas
+const btnSeasonsPreview = document.querySelector('#btn-seasonsPreview');
+const seasonsMainContainer = document.querySelector('.seasonsMainContainer');
+const seasonContainer = document.querySelector('.season-container');
+const seasonTitle = document.querySelector('.seasonTitle');

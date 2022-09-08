@@ -132,44 +132,29 @@ nav{
 }
 
 /* tendencias preview */
-.trend-containerPreview, .collection-containerHeadPreview, .trendSeries-containerPreview{
+.trend-containerPreview, .collection-containerHeadPreview, .trendTv-containerPreview{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendSeries-scrollContainerPreview, .movieView-ScrollImages{
+.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendTv-scrollContainerPreview, .movieView-ScrollImages, .tvView-ScrollImages{
     display: flex;
     justify-content: space-between;
     margin-top: var(--marginTopComponent);
     overflow-x: scroll;
 }
 
-.trend-scrollContainerPreview::-webkit-scrollbar{
+.scrollStyle::-webkit-scrollbar{
     height: 5px;
 }
-.trend-scrollContainerPreview::-webkit-scrollbar-thumb{
+.scrollStyle::-webkit-scrollbar-thumb{
     background-color: var(--moradoClaro);
     border-radius: 5px;
 }
 
-.movie-recommendations-scroll::-webkit-scrollbar{
-    height: 5px;
-}
-.movie-recommendations-scroll::-webkit-scrollbar-thumb{
-    background-color: var(--moradoClaro);
-    border-radius: 5px;
-}
-
-.movieView-ScrollImages::-webkit-scrollbar{
-    height: 5px;
-}
-.movieView-ScrollImages::-webkit-scrollbar-thumb{
-    background-color: var(--moradoClaro);
-    border-radius: 5px;
-}
 /* series tendencias preview*/
-.trendSeries-containerPreview{
+.trendTv-containerPreview{
     margin-top: var(--marginTopSection);
 }
 
@@ -286,12 +271,12 @@ nav{
     text-align: center;
 }
 /* contenedor de articulo (pelicula-serie) */
-.movie-container, .serie-container{
+.movie-container, .tv-container{
     margin-right: 10px;
     cursor: pointer;
 }
 
-.movieImg, .serieImg{
+.movieImg{
     min-height: 150px;
     min-width: 150px;
     max-height: 250px;
@@ -300,8 +285,24 @@ nav{
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
 }
 
+.tvImg{
+    min-height: 250px;
+    min-width: 250px;
+    max-height: 350px;
+    max-width: 350px;
+    border-radius: 2px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+}
+
+.generic-results .tvImg {
+    min-height: 150px;
+    min-width: 150px;
+    max-height: 250px;
+    max-width: 250px;
+}
+
 /* vista de pelicula/serie */
-.movie-view{
+.movie-view, .tv-view{
     display: flex;
     flex-direction: column;
     font-family: var(--fontTitle);
@@ -310,26 +311,26 @@ nav{
     padding-top: var(--headerSize);
 }
 
-.movieView-img{
+.movieView-img, .tvView-img{
     height: calc(90vh - 80px);
     background-position: center !important;
     background-attachment: fixed !important;
     background-repeat: no-repeat !important; 
 }
 
-.movieView-descriptionContainer{
+.movieView-descriptionContainer, .tvView-descriptionContainer{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 10px 0;
 }
 
-.movieView-subt{
+.movieView-subt, .tvView-subt{
     text-transform: uppercase;
     margin-left: var(--marginLeft);
 }
 
-.movie-score{
+.movie-score, .tv-score{
     text-align: right;
     margin-right: var(--marginLeft);
 }
@@ -338,14 +339,18 @@ nav{
     color: #fcff5a;
     margin-right: 5px;
 }
-
-.movie-description{
+.tv-score::before{
+    content: '★';
+    color: #fcff5a;
+    margin-right: 5px;
+}
+.movie-description, .tv-description{
     text-align: left;
     margin-left: var(--marginLeft);
     margin-right: var(--marginLeft);
 }
 
-.movieView-categoryContainer{
+.movieView-categoryContainer, .tvView-categoryContainer{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -360,13 +365,23 @@ nav{
     margin-right: 15px;
     font-size: var(--sizeNavLink);
 }
+.tvView-categoryContainer .category-item{
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-right: 15px;
+    font-size: var(--sizeNavLink);
+}
 
-.movieView-ScrollImagesContainer{
+.movieView-ScrollImagesContainer, .tvView-ScrollImagesContainer{
     width: 100%;
     margin-top: var(--marginTopSection) ;
 }
 
 .movieView-ScrollImagesContainer h4{
+    margin-left: var(--marginLeft);
+}
+.tvView-ScrollImagesContainer h4{
     margin-left: var(--marginLeft);
 }
 
@@ -377,6 +392,15 @@ nav{
     border-radius: 5px;
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
     margin-left: var(--marginLeft);
+}
+
+.tvView-ScrollImages img{
+    max-width: 80vw;
+    max-height: 70vh;
+    object-fit: contain;    
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+    margin-left: var(--marginLeft);    
 }
 
 .recommendations{
@@ -390,7 +414,7 @@ nav{
     margin-bottom: 10px;
 }
 
-.movie-recommendations-scroll{
+.movie-recommendations-scroll, .tv-recommendations-scroll{
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--marginTopSection);
@@ -407,6 +431,40 @@ nav{
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
 }
 
+.tv-recommendations-scroll .tvImg{
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 2px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+}
+
+#btn-seasonsPreview{
+    margin-top: var(--marginTopComponent);
+    margin-left: var(--marginLeft);
+    background-color: var(--moradoMedio);
+    color: var(--blanco);
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+#btn-seasonsPreview::after{
+    content: '⬇';
+    margin-left: 20px;
+}
+
+.seasonsMainContainer{
+    width: 100%;
+    padding: var(--marginLeft);
+}
+
+.season-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 .inactive{
     display: none;
 }

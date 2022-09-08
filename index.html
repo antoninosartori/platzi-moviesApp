@@ -18,12 +18,12 @@
                 <span class="backArrow inactive"><</span>
                 <span class="navItem" id="categories-link">categories</span>
                 <span class="navItem" id="movies-link">movies</span>
-                <span class="navItem" id="series-link">series</span>
+                <span class="navItem" id="tv-link">series</span>
                 <img src="./asset/searchIcon.svg" alt="searchIcon" id="search-icon" class="navItem">
                 <!--categories-->
                 <h1 class="titleSection inactive" id="category-title">categories</h1>
                 <h1 class="titleSection inactive" id="movies-title">movies</h1>
-                <h1 class="titleSection inactive" id="series-title">series</h1>
+                <h1 class="titleSection inactive" id="tv-title">series</h1>
                 <!--search-->
                 <form class="form-search inactive">
                     <input class="search-input inactive" id="search-input" type="text" placeholder="movies or series">
@@ -41,20 +41,20 @@
         <section id="home-container" class="section-container">
             <div class="trend-containerPreview">
                 <h2 class="titleSection subtSection">trendings movies</h2>
-                <button class="btn" id="btn-trendsPreview">more</button>
+                <button class="btn" id="btn-trendsPreview">+</button>
             </div>
-            <div class="trend-scrollContainerPreview ">
+            <div class="trend-scrollContainerPreview scrollStyle">
                 <!--<article class="movie-container">
                     <img src="./asset/imgMovie.jpg" alt="" class="movieImg">
                 </article>-->
             </div>
-            <div class="trendSeries-containerPreview">
+            <div class="trendTv-containerPreview">
                 <h2 class="titleSection subtSection">top series</h2>
-                <button class="btn" id="btn-trendsSeriesPreview">more</button>
+                <button class="btn" id="btn-trendsTvPreview">+</button>
             </div>
-            <div class="trendSeries-scrollContainerPreview ">
-                <article class="serie-container">
-                    <img src="./asset/imgMovie.jpg" alt="" class="serieImg">
+            <div class="trendTv-scrollContainerPreview scrollStyle">
+                <article class="tv-container">
+                    <img src="./asset/imgMovie.jpg" alt="" class="tvImg">
                 </article>
             </div>
             <!--
@@ -92,7 +92,7 @@
             </div>
         </section>
 
-        <!-- vista pelicula/serie -->
+        <!-- vista pelicula -->
         <section id="movie-view" class="movie-view">
             <div class="movieView-img"></div>
             <div class="movieView-descriptionContainer">
@@ -104,7 +104,7 @@
             </div>
             <div class="movieView-ScrollImagesContainer">
                 <h4 class="subtSection">Pictures</h4>
-                <div class="movieView-ScrollImages">
+                <div class="movieView-ScrollImages scrollStyle">
                     <img class="movieImages-Item" src="./asset/imgMovie.jpg" alt="">
                 </div>
             </div>
@@ -114,6 +114,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- vista serie -->
+        <section id="tv-view" class="tv-view">
+            <div class="tvView-img"></div>
+            <div class="tvView-descriptionContainer">
+                <h3 class="tvView-subt">description</h3>
+                <span class="tv-score">7.3</span>
+            </div>
+            <p class="tv-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore omnis adipisci necessitatibus earum, eligendi numquam reprehenderit aliquam, doloremque quam eos ducimus voluptate qui excepturi autem aspernatur fugit, nesciunt eius odit.</p>
+            <div class="tvView-categoryContainer">
+            </div>
+            <div class="tvView-ScrollImagesContainer">
+                <h4 class="subtSection">Pictures</h4>
+                <div class="tvView-ScrollImages scrollStyle">
+                    <img class="tvImages-Item" src="./asset/imgMovie.jpg" alt="">
+                </div>
+            </div>
+            <button id="btn-seasonsPreview" class="btn">seasons</button>
+            <div class="seasonsMainContainer inactive">
+                <div class="season-container ">
+                    <!--<h4 class="seasonTitle">Season 1</h4>-->
+                </div>
+                <div class="season-episodes inactive">
+                    
+                </div>
+            </div>
+            <div class="recommendations">
+                <h4 class="recommendations-title">similar series</h4>
+                <div class="tv-recommendations-scroll">
+                </div>
+            </div>
+        </section>        
     </main>
     <footer></footer>
 

@@ -24,6 +24,7 @@ const categoriesContainer = document.querySelector('#categories-container');
 const genericContainer = document.querySelector('.generic-list');
 const movieViewContainer = document.querySelector('.movie-view');
 const tvViewContainer = document.querySelector('.tv-view');
+const tvSeasonEpisodesContainer = document.querySelector('.seasonEpisodes-Container');
 
 // contenedores especificos
 const trendScrollContainerPreview = document.querySelector('.trend-scrollContainerPreview');
@@ -37,6 +38,7 @@ const categoryItem = document.querySelector('.category-item');
 // botones de las secciones
 const btnTrendsPreview = document.querySelector('#btn-trendsPreview');
 const btnTrendsTvPreview = document.querySelector('#btn-trendsTvPreview');
+const btnGoHome = document.querySelector('.btn-goHome');
 
 //pelicula 
 const movieContainer = document.querySelector('.movie-container');
@@ -66,3 +68,7 @@ const btnSeasonsPreview = document.querySelector('#btn-seasonsPreview');
 const seasonsMainContainer = document.querySelector('.seasonsMainContainer');
 const seasonContainer = document.querySelector('.season-container');
 const seasonTitle = document.querySelector('.seasonTitle');
+//episodios
+const episodeHeader = document.querySelector('.episode-header');
+const episodeBody = document.querySelector('.episode-body');
+const episodeContainer = document.querySelector('.episode-container');

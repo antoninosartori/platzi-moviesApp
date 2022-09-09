@@ -111,6 +111,16 @@ function createSerieImages(tvPosters, container){
         container.appendChild(tvImage);
     });
 }
+
+function createEpisodes(episodes, seasonName){
+    genericTitle.textContent = seasonName;
+    console.log(episodes);
+    episodes.forEach(episode =>{
+        alert('no')
+    });
+
+}
+
 //llamados a la api
 async function getTrendsPreview(){
     const {data} = await api('trending/movie/day');
@@ -159,12 +169,7 @@ async function getMoviesBySearch(query){
         },
     });
     const media = data.results;
-    console.log(media);
-    //const mediaType = media.forEach(type => {
-        
-    //}); 
-    //createMovies(media, genericResults);
-    //createMedia (media, genericResults, mediaType)
+    
     createMultimedia(media, genericResults);
 }
 
@@ -201,22 +206,12 @@ async function getSerieById(id){
     genericTitle.textContent = serie.name;
     tvViewDescription.textContent = serie.overview;
     tvViewScore.textContent = serie.vote_average;
-
     //temporadas
     const seasons = serie.seasons;
-    btnSeasonsPreview.addEventListener('click', () =>{
-        seasonsMainContainer.classList.toggle('inactive');
-        seasonContainer.innerHTML = '';
-        seasons.forEach(season => {
-            const seasonTitle = document.createElement('h4');
-            seasonTitle.classList.add('seasonTitle');
-            seasonTitle.textContent = season.name;
-            seasonContainer.appendChild(seasonTitle);
-            seasonsMainContainer.appendChild(seasonContainer);
-            });
-    });
+    
     getSerieImagesById(id);
     getSimilarSeriesById(id);
+    getSeasonsSerie(seasons, id);
 }
 
 async function getSimilarMoviesById(id){
@@ -246,9 +241,63 @@ async function getSerieImagesById(id){
     createSerieImages(seriePosters, tvViewScrollImages);
 }
 
-async function getSeasonsById(id){
-    const [_, serieId] = location.hash.split('=');
-    location.hash = `#seasons-tv=${serieId}`;
-    
-    //const { data: seasons } = await api()
+async function getSeasonsSerie(seasons, id){
+    seasonContainer.innerHTML = '';
+    seasonsMainContainer.classList.add('inactive');    
+    seasons.forEach(season => {
+        const seasonTitle = document.createElement('h4');
+        seasonTitle.classList.add('seasonTitle');
+        seasonTitle.textContent = season.name;
+        seasonTitle.setAttribute('id', season.id);
+        seasonContainer.appendChild(seasonTitle);
+        seasonsMainContainer.appendChild(seasonContainer);
+
+        seasonTitle.addEventListener('click', ()=> {
+            //location.hash = `season=${season.season_number}-tv=${id}-episodes`;
+            location.hash = `season=${season.season_number}-tv=${id}-episodes`;
+            createEpisodesByNumber(season, id,season.name);
+            
+        });
+    });
+}
+
+async function createEpisodesByNumber(season, id, seasonName){
+    tvSeasonEpisodesContainer.innerHTML = '';
+    genericTitle.textContent = seasonName;
+    for (let i = 1; i <= season.episode_count; i++) {
+        const {data: episodes} = await api(`/tv/${id}/season/${season.season_number}/episode/${i}`);
+        console.log(episodes);
+        //crear episodios
+        //contenedores de los episodios
+        const episodeContainer = document.createElement('article');
+        episodeContainer.classList.add('episode-container');
+        const episodeHeader = document.createElement('div');
+        episodeHeader.classList.add('episode-header');
+        const episodeBody = document.createElement('div');
+        episodeBody.classList.add('episode-body');
+        //episodio parte superior (header)
+        const episodeNumber = document.createElement('span');
+        episodeNumber.textContent = episodes.episode_number;
+        episodeNumber.classList.add('episode-number');
+        const episodeName = document.createElement('h3');
+        episodeName.textContent = episodes.name;
+        episodeName.classList.add('episode-name');
+        //episodio parte inferior (body)
+        const episodeImg = document.createElement('img');
+        episodeImg.classList.add('episode-img');
+        episodeImg.setAttribute('src', 'https://image.tmdb.org/t/p/w300' + episodes.still_path);
+        //episodeImg.setAttribute('alt', episodes.name);
+        const episodeDescription = document.createElement('p');
+        episodeDescription.classList.add('episode-description');
+        episodeDescription.textContent = episodes.overview;
+        //episodios appends
+        episodeHeader.appendChild(episodeNumber);
+        episodeHeader.appendChild(episodeName);
+        episodeBody.appendChild(episodeImg);
+        episodeBody.appendChild(episodeDescription);
+        episodeContainer.appendChild(episodeHeader);
+        episodeContainer.appendChild(episodeBody);
+        tvSeasonEpisodesContainer.appendChild(episodeContainer);
+        
+    }
 }

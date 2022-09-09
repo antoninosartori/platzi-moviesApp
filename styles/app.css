@@ -193,6 +193,7 @@ nav{
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: 300;
+    
 }
 
 #id28::before{
@@ -256,7 +257,7 @@ nav{
 
 
 /* generic container */
-.generic-results{
+.generic-results, .seasonEpisodes-Container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -465,6 +466,79 @@ nav{
     align-items: center;
     gap: 15px;
 }
+
+.seasonEpisodes-Container{
+    margin-right: var(--marginLeft);
+}
+
+.episode-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--marginTopSection);
+}
+
+.episode-header, .episode-body{
+    display: flex;
+    font-family: var(--fontTitle);
+    color: var(--blanco);
+}
+
+.episode-header{
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: var(--sizeSubt);
+}
+
+.episode-number{
+    background-color: var(--blanco);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--moradoMedio);
+    margin-right: 10px;
+}
+
+.episode-name{
+    padding: 5px 0;
+}
+
+.episode-body{
+    flex-direction: column;
+}
+
+.episode-img{
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+}
+
+.episode-description{
+    font-weight: 300;
+    font-size: var(--sizeSubt);
+}
+
+footer{
+    width: 100vw;
+    background-color: var(--moradoMedio);
+    color: var(--blanco);
+    margin-top: var(--marginTopSection);
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer h5{
+    font-family: var(--fontTitle);
+    font-size: var(--sizeNavLink);
+    text-transform: lowercase;
+}
+
+footer img{
+    width: 16px;
+    height: 16px;
+}
+
 .inactive{
     display: none;
 }

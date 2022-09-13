@@ -196,7 +196,7 @@ nav{
     
 }
 
-.tvCategories-list{
+.tvCategories-list, .moviesCategories-list{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -204,6 +204,11 @@ nav{
 }
 
 .tvCategories-list .category-item{
+    font-size: var(--sizeNavLink);
+    margin-bottom: 10px;
+}
+
+.moviesCategories-list .category-item{
     font-size: var(--sizeNavLink);
     margin-bottom: 10px;
 }
@@ -484,7 +489,7 @@ nav{
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
 }
 
-#btn-seasonsPreview, #btn-tvCategories{
+#btn-seasonsPreview, #btn-tvCategories, #btn-moviesCategories{
     margin-top: var(--marginTopComponent);
     margin-left: var(--marginLeft);
     background-color: var(--moradoMedio);
@@ -495,7 +500,7 @@ nav{
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
 }
 
-#btn-tvCategories{
+#btn-tvCategories, #btn-moviesCategories{
     margin-top: 0;
     margin-bottom: var(--marginTopComponent);
 }
@@ -508,6 +513,11 @@ nav{
     content: '⬇';
     margin-left: 20px;
 }
+#btn-moviesCategories::after{
+    content: '⬇';
+    margin-left: 20px;
+}
+
 
 .seasonsMainContainer{
     width: 100%;
@@ -610,11 +620,11 @@ nav{
     align-items: center;
 }*/
 
-.tvCategories-container{
+.tvCategories-container, .moviesCategories-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: var(--marginTopComponent);   
+    margin-bottom: var(--marginTopComponent);
 }
 
 footer{

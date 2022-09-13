@@ -32,7 +32,8 @@ const seriesPageContainer = document.querySelector('.series-pageContainer');
 const trendScrollContainerPreview = document.querySelector('.trend-scrollContainerPreview');
 const trendTvScrollContainerPreview = document.querySelector('.trendTv-scrollContainerPreview');
 const categoriesList = document.querySelector('.categories-list');
-const tvCategoriesList = document.querySelector('.tvCategories-list')
+const tvCategoriesList = document.querySelector('.tvCategories-list');
+const moviesCategoriesList = document.querySelector('.moviesCategories-list');
 const moviesPageScrollContainer = document.querySelector('.moviesPage-revenuesMoviesScrollContainer');
 const seriesPageScrollContainer = document.querySelector('.seriesPage-revenuesSeriesScrollContainer');
 const moviesPageLastReleasesMoviesScrollContainer = document.querySelector('.moviesPage-epicMoviesScrollContainer');
@@ -58,6 +59,7 @@ const movieViewCategoryItem = document.querySelector('.movieView-category-item')
 const recommendations = document.querySelector('.recommendations');
 const movieRecommendationsScroll = document.querySelector('.movie-recommendations-scroll');
 const movieViewScrollImages = document.querySelector('.movieView-ScrollImages');
+const btnMoviesCategories = document.querySelector('#btn-moviesCategories');
 
 //serie
 const tvContainer = document.querySelector('.tv-container');

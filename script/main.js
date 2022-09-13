@@ -71,7 +71,8 @@ function createMultimedia(media, container){
     });
 }
 
-function createCategories(categories, container){
+function createCategories(categories, container, multi){
+//function createCategories(categories, container){
     container.innerHTML = "";
 
     categories.forEach(category => {
@@ -80,12 +81,13 @@ function createCategories(categories, container){
         categoryItem.setAttribute('id', 'id' + category.id); //le agrega un ID
         const categoryTitle = document.createTextNode(category.name); //crea el nombre de la categoria
         categoryItem.addEventListener('click', () => {
-            location.hash = `#category=${category.id}-${category.name}`;
+            location.hash = `#category=${category.id}-${category.name}-${multi}`;
         });
 
         categoryItem.appendChild(categoryTitle); //mete el texto adentro del h4
         categoryItem.setAttribute('id', 'id' + category.id);
         container.appendChild(categoryItem); //mete el item de la categoria en el contenedor
+
     });
 }
 
@@ -144,11 +146,12 @@ async function getTopSeries(){
     createSeries(series, genericResults);
 }
 
-async function getCategoriesPreview(){
-    const {data} = await api('genre/movie/list');
+async function getCategoriesPreview(multi, container){
+    const {data} = await api(`genre/${multi}/list`);
+//    const {data} = await api(`genre/movie/list`);
     const categories = data.genres;
-    
-    createCategories(categories, categoriesList);
+//    createCategories(categories, categoriesList);
+    createCategories(categories, container, multi);
 }
 
 async function getMoviesByCategory(id){
@@ -158,8 +161,19 @@ async function getMoviesByCategory(id){
         },
     });
     const movies  = data.results;
-
+    
     createMovies(movies, genericResults);
+}
+
+async function getSeriesByCategory(id){
+    const {data} = await api(`discover/tv`, {
+        params:{
+            with_genres: id,
+        },
+    });
+    const series  = data.results;
+
+    createSeries(series, genericResults);
 }
 
 async function getMoviesBySearch(query){
@@ -209,6 +223,7 @@ async function getSerieById(id){
     //temporadas
     const seasons = serie.seasons;
     
+    createCategories(serie.genres, tvViewCategoriesContainer)
     getSerieImagesById(id);
     getSimilarSeriesById(id);
     getSeasonsSerie(seasons, id);
@@ -253,7 +268,6 @@ async function getSeasonsSerie(seasons, id){
         seasonsMainContainer.appendChild(seasonContainer);
 
         seasonTitle.addEventListener('click', ()=> {
-            //location.hash = `season=${season.season_number}-tv=${id}-episodes`;
             location.hash = `season=${season.season_number}-tv=${id}-episodes`;
             createEpisodesByNumber(season, id,season.name);
             
@@ -301,3 +315,56 @@ async function createEpisodesByNumber(season, id, seasonName){
         
     }
 }
+
+async function getMoviesPremiere(){
+    const {data} = await api('discover/movie', {
+        params:{
+            sort_by: `revenue.desc`,
+        },
+    });
+    const movies = data.results;
+
+    createMovies(movies, moviesPageScrollContainer);
+}
+
+async function getMoviesMostCount(){
+    const {data} = await api('discover/movie', {
+        params:{
+            sort_by: `vote_count.desc`,
+        },
+    });
+    const movies = data.results;
+
+    createMovies(movies, moviesPageLastReleasesMoviesScrollContainer);
+}
+
+async function getSeriesMostCount(){
+    const {data} = await api('discover/tv', {
+        params:{
+            sort_by: `vote_count.desc`,
+        },
+    });
+    const series = data.results;
+
+    createSeries(series, seriesPageLastReleasesSeriesScrollContainer);
+}
+
+async function getSeriesPremiere(){
+    const {data} = await api('discover/tv', {
+        params:{
+            sort_by: `first_air_date.asc`,
+        },
+    });
+    const series = data.results;
+
+    createSeries(series, seriesPageScrollContainer);
+}
+
+async function getSeriesCategories(){
+    const { data: categories } = await api('genre/tv/list');
+    const tvCategories = categories.genres;
+    createCategories(tvCategories, tvCategoriesList);
+}
+
+
+

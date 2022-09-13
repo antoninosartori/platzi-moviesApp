@@ -25,6 +25,7 @@ linkTv.addEventListener('click', () =>{
 
 backArrow.addEventListener('click', () =>{
     history.back();
+    tvCategoriesList.classList.add('inactive');
 });
 
 btnTrendsPreview.addEventListener('click', () => {
@@ -39,8 +40,13 @@ btnSeasonsPreview.addEventListener('click', () =>{
 });
 
 btnGoHome.addEventListener('click', () => {
+    tvCategoriesList.classList.add('inactive');
     location.hash = 'home';
-})
+});
+
+btnTvCategories.addEventListener('click', () => {
+    tvCategoriesList.classList.toggle('inactive');
+});
 
 //eventos para los cambios del location
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -110,9 +116,11 @@ function homePage(){
     homeContainer.classList.remove('inactive');
     categoriesContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     tvViewContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
     getTrendsPreview();
     getTopSeriesPreview();
@@ -139,12 +147,15 @@ function categoriesPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.remove('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');
     tvViewContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
-
-    getCategoriesPreview();
+    seriesPageContainer.classList.add('inactive');
+    
+    getCategoriesPreview('movie', categoriesList);
+//    getCategoriesPreview();
 };
 
 function trendsPage(){
@@ -168,6 +179,8 @@ function trendsPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.remove('inactive');
     tvViewContainer.classList.add('inactive');
@@ -198,10 +211,12 @@ function topSeriesPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.remove('inactive');
     tvViewContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
     genericTitle.innerHTML = 'Top Series'
     getTopSeries();
@@ -228,10 +243,12 @@ function srcPage(){
     // contenedores
     homeContainer.classList.remove('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     tvViewContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
 };
 
@@ -256,9 +273,12 @@ function searchPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.remove('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    tvViewContainer.classList.add('inactive');    
+    seriesPageContainer.classList.add('inactive');
 
     const [_, query] = location.hash.split('=');
     getMoviesBySearch(query);
@@ -286,17 +306,23 @@ function categoryPage(id){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.remove('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
-
+    seriesPageContainer.classList.add('inactive');
+    tvViewContainer.classList.add('inactive');
 
     const [_, categoryData] = location.hash.split('=');
-    const [categoryId, categoryName] = categoryData.split('-');
-    
+//    const [categoryId, categoryName] = categoryData.split('-');
+    const [categoryId, categoryName, multi] = categoryData.split('-');
     genericTitle.innerHTML = categoryName;
 
-    getMoviesByCategory(categoryId);
+    if (multi == 'movie') {
+        getMoviesByCategory(categoryId);        
+    } else {
+        getSeriesByCategory(categoryId);  
+    }
 };
 
 function moviesPage(){
@@ -321,9 +347,14 @@ function moviesPage(){
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
-    genericContainer.classList.remove('inactive');
+    tvViewContainer.classList.add('inactive');
+    moviesPageContainer.classList.remove('inactive');
+    genericContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
+    getMoviesPremiere();
+    getMoviesMostCount();
 };
 
 function seriesPage(){
@@ -347,9 +378,16 @@ function seriesPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
-    genericContainer.classList.remove('inactive');
+    tvViewContainer.classList.add('inactive');
+    genericContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.remove('inactive');
+    getCategoriesPreview('tv', tvCategoriesList);
+    getSeriesMostCount();
+    getSeriesPremiere();
+//    getSeriesCategories();
 };
 
 function moviePage(){
@@ -373,10 +411,12 @@ function moviePage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.remove('inactive');
     tvViewContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');  
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
     const [_, movieId] = location.hash.split('=');
 
@@ -404,10 +444,12 @@ function seriePage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');
     tvViewContainer.classList.remove('inactive');
     tvSeasonEpisodesContainer.classList.add('inactive');
+    seriesPageContainer.classList.add('inactive');
 
 
     const [_, serieId] = location.hash.split('=');
@@ -434,10 +476,12 @@ function seasonPage(){
     // contenedores
     homeContainer.classList.add('inactive');
     categoriesContainer.classList.add('inactive');
+    moviesPageContainer.classList.add('inactive');
     movieViewContainer.classList.add('inactive');
     genericContainer.classList.add('inactive');
     tvViewContainer.classList.add('inactive');
     tvSeasonEpisodesContainer.classList.remove('inactive');
+    seriesPageContainer.classList.add('inactive');
     
 }
 

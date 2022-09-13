@@ -138,7 +138,7 @@ nav{
     justify-content: space-between;
 }
 
-.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendTv-scrollContainerPreview, .movieView-ScrollImages, .tvView-ScrollImages{
+.trend-scrollContainerPreview, .collection-scrollContainerPreview, .trendTv-scrollContainerPreview, .movieView-ScrollImages, .tvView-ScrollImages, .moviesPage-revenuesMoviesScrollContainer, .moviesPage-epicMoviesScrollContainer, .seriesPage-epicSeriesScrollContainer, .seriesPage-revenuesSeriesScrollContainer{
     display: flex;
     justify-content: space-between;
     margin-top: var(--marginTopComponent);
@@ -196,7 +196,22 @@ nav{
     
 }
 
+.tvCategories-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.tvCategories-list .category-item{
+    font-size: var(--sizeNavLink);
+    margin-bottom: 10px;
+}
+
 #id28::before{
+    content: '💣';
+}
+#id10759::before{
     content: '💣';
 }
 #id12::before{
@@ -253,11 +268,35 @@ nav{
 #id37::before{/*western*/
     content:'🤠';
 }
+#id10762::before{
+    content: '🧒🏾';
+}
+#id10763::before{
+    content: '📰';
+}
+#id10764::before{
+    content: '💭';
+}
+#id10765::before{
+    content: '🦸🏻‍♂️';
+}
+#id10766::before{
+    content: '🧼';
+}
+#id10767::before{
+    content: '🗣️';
+}
+#id10768::before{/*war*/
+    content:'🚁';
+}
+
+
+
 
 
 
 /* generic container */
-.generic-results, .seasonEpisodes-Container{
+.generic-results{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -265,6 +304,10 @@ nav{
 }
 
 .generic-results .movie-container{
+    margin-top: 10px;
+}
+
+.generic-results .tv-container{
     margin-top: 10px;
 }
 
@@ -441,7 +484,7 @@ nav{
     box-shadow: 0px 3px 3px 2px var(--sombraOscura);
 }
 
-#btn-seasonsPreview{
+#btn-seasonsPreview, #btn-tvCategories{
     margin-top: var(--marginTopComponent);
     margin-left: var(--marginLeft);
     background-color: var(--moradoMedio);
@@ -449,8 +492,19 @@ nav{
     text-transform: uppercase;
     font-weight: 300;
     letter-spacing: 1px;
+    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+}
+
+#btn-tvCategories{
+    margin-top: 0;
+    margin-bottom: var(--marginTopComponent);
 }
 #btn-seasonsPreview::after{
+    content: '⬇';
+    margin-left: 20px;
+}
+
+#btn-tvCategories::after{
     content: '⬇';
     margin-left: 20px;
 }
@@ -467,7 +521,19 @@ nav{
     gap: 15px;
 }
 
+.seasonTitle{
+    box-shadow: 2px 5px 10px 1px var(--sombraOscura);
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 100px;
+    text-align: center;
+}
+
 .seasonEpisodes-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--marginTopSection);
     margin-right: var(--marginLeft);
 }
 
@@ -509,12 +575,46 @@ nav{
     object-fit: contain;
     margin-bottom: 10px;
     border-radius: 2px;
-    box-shadow: 0px 3px 3px 2px var(--sombraOscura);
+    box-shadow: 0px 3px 3px 1px var(--sombraOscura);
 }
 
 .episode-description{
     font-weight: 300;
     font-size: var(--sizeSubt);
+    min-width: 50vw;
+}
+
+/* movies pagina (no la de la vista de peliculas) */
+.movies-pageContainer, .series-pageContainer{
+    padding-top: var(--marginTopSection);
+}
+
+.epicMovies-container, .revenuesMovies-container, .epicSeries-container, .revenuesSeries-container{
+    color: var(--blanco);
+    font-family: var(--fontTitle);
+    margin-bottom: var(--marginTopComponent);
+}
+
+.epicMovies-container .movieImg{
+    min-height: 250px;
+    min-width: 250px;
+    max-height: 350px;
+    max-width: 350px;
+}
+
+/* series pagina (no la vista de una serie) */
+/*.series-pageContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}*/
+
+.tvCategories-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--marginTopComponent);   
 }
 
 footer{

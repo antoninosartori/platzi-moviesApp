@@ -25,11 +25,18 @@ const genericContainer = document.querySelector('.generic-list');
 const movieViewContainer = document.querySelector('.movie-view');
 const tvViewContainer = document.querySelector('.tv-view');
 const tvSeasonEpisodesContainer = document.querySelector('.seasonEpisodes-Container');
+const moviesPageContainer = document.querySelector('.movies-pageContainer');
+const seriesPageContainer = document.querySelector('.series-pageContainer');
 
 // contenedores especificos
 const trendScrollContainerPreview = document.querySelector('.trend-scrollContainerPreview');
 const trendTvScrollContainerPreview = document.querySelector('.trendTv-scrollContainerPreview');
 const categoriesList = document.querySelector('.categories-list');
+const tvCategoriesList = document.querySelector('.tvCategories-list')
+const moviesPageScrollContainer = document.querySelector('.moviesPage-revenuesMoviesScrollContainer');
+const seriesPageScrollContainer = document.querySelector('.seriesPage-revenuesSeriesScrollContainer');
+const moviesPageLastReleasesMoviesScrollContainer = document.querySelector('.moviesPage-epicMoviesScrollContainer');
+const seriesPageLastReleasesSeriesScrollContainer = document.querySelector('.seriesPage-epicSeriesScrollContainer');
 const genericResults = document.querySelector('.generic-results');
 
 //elementos
@@ -62,6 +69,7 @@ const tvViewCategoriesContainer = document.querySelector('.tvView-categoryContai
 const tvViewCategoryItem = document.querySelector('.tvView-category-item');
 const tvRecommendationsScroll = document.querySelector('.tv-recommendations-scroll');
 const tvViewScrollImages = document.querySelector('.tvView-ScrollImages');
+const btnTvCategories = document.querySelector('#btn-tvCategories');
 
 //temporadas
 const btnSeasonsPreview = document.querySelector('#btn-seasonsPreview');

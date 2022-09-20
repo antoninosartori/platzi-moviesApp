@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="styles/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body >
     <header >
-        <nav>
+        <nav >
             <div class="header-container">
                 <!--home-->
                 <img class="navItem logo" id="logo" src="./asset/pochoclo.svg" alt="">
@@ -21,7 +21,7 @@
                 <span class="navItem" id="tv-link">series</span>
                 <img src="./asset/searchIcon.svg" alt="searchIcon" id="search-icon" class="navItem">
                 <!--categories-->
-                <h1 class="titleSection inactive" id="category-title">categories</h1>
+                <h1 class="titleSection inactive" id="category-title">categories</h1><!--tengo que comentar este h1-->
                 <h1 class="titleSection inactive" id="movies-title">movies</h1>
                 <h1 class="titleSection inactive" id="tv-title">series</h1>
                 <!--search-->
@@ -110,7 +110,7 @@
             </div>
             <div class="recommendations">
                 <h4 class="recommendations-title">similar movies</h4>
-                <div class="movie-recommendations-scroll">
+                <div class="movie-recommendations-scroll scrollStyle">
                 </div>
             </div>
         </section>
@@ -226,7 +226,7 @@
         
 
     </main>
-    <footer>
+    <footer class="max-width">
         <h5>Made with ❤ by Antonino Sartori</h5>
         <img src="./asset/homeIcone.svg" alt="home" class="btn-goHome"></img>
     </footer>

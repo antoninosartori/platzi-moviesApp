@@ -32,11 +32,12 @@
 
 body{
     background-color: var(--moradoOscuro);
+    user-select: none;
 }
 
 header{
     height: 80px;
-    width: 100vw;
+    width: 100%;
     background-color: var(--moradoMedio);
 }
 
@@ -653,3 +654,15 @@ footer img{
     display: none;
 }
 
+@media only screen and (min-width: 450px) {
+    body, footer,.header-fixed{
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    .header-fixed{
+        left: unset;
+    }
+    html{
+        background-color: rgb(43, 43, 43);
+    }
+}
